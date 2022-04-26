@@ -1,0 +1,268 @@
+﻿@model IEnumerable<FacebookTEST.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Facebook.UI.MVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/page.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Facebook.UI.MVC.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap" rel="stylesheet">
+    <script src="~/js/site.js"></script>
+    <script src="https://kit.fontawesome.com/bd623f34da.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    
+
+</head>
+
+    <body>
+
+        <nav>
+            <div class="nav-left">
+                <img src="~/images/fblogo.png" class="logo">
+                <ul>
+                    <li><img src="~/images/notification.png"></li>
+                    <li><img src="~/images/inbox.png"></li>
+                    <li><img src="~/images/video.png"></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+
+                <div class="search-box">
+                    <img src="~/images/search.png">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+                    <img src="~/images/profile-pic.png">
+                </div>
+
+            </div>
+            <!----------settings-menu----------->
+            <div class="settings-menu">
+                <div id="dark-btn">
+                    <span></span>
+                </div>
+
+
+
+                <div class="settings-menu-inner">
+                    <div class="user-profile">
+                        <img src="~/images/profile-pic.png">
+                        <div class="">
+                            @*<p>Petar Misic</p>*@
+                            <p id="SettingsSessionName"></p>
+                            <a href="#">See your profile</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="user-profile">
+                        <img src="~/images/feedback.png">
+                        <div>
+                            <p>Give Feedback</p>
+                            <a href="#">Help us to improve the new design</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="setting-links">
+                        <img src="~/images/setting.png" class="settings-icon">
+                        <a href="#">Settings <img src="~/images/arrow.png" 
+                        width="10px"></a>
+                    </div>
+                    <div class="setting-links">
+                        <img src="~/images/help.png" class="settings-icon">
+                        <a href="#">Help <img src="~/images/arrow.png" 
+                        width="10px"></a>
+                    </div>
+                    <div class="setting-links">
+                        <img src="~/images/display.png" class="settings-icon">
+                        <a href="#">Display <img src="~/images/arrow.png" 
+                        width="10px"></a>
+                    </div>
+                    <div class="setting-links">
+                        <img src="~/images/logout.png" class="settings-icon">
+                        <a href="#">Logout <img src="~/images/arrow.png" 
+                        width="10px"></a>
+                    </div>
+
+
+                </div>
+               
+            </div>
+
+        </nav>
+
+        <div class="container">
+            <!----------left-sidebar----------->
+            <div class="left-sidebar">
+                <div class="imp-links">
+                    <a href="#"><img src="~/images/news.png">Latest News</a>
+                    <a href="#"><img src="~/images/friends.png">Friends</a>
+                    <a href="#"><img src="~/images/group.png">Group</a>
+                    <a href="#"><img src="~/images/marketplace.png">Marketplace</a>
+                    <a href="#"><img src="~/images/watch.png">Watch</a>
+                    <a href="#">See More</a>
+                </div>
+                <div class="shortcut-links">
+                    <p>You Shortcuts</p>
+                    <a href="#"><img src="~/images/shortcut-1.png">Web Developers</a>
+                    <a href="#"><img src="~/images/shortcut-2.png">Web Design</a>
+                    <a href="#"><img src="~/images/shortcut-3.png">Full Stack Developer</a>
+                </div>
+
+            </div>
+
+            <!----------main-content----------->
+            <div class="main-content">
+
+                <div class="story-gallery">
+                    <div class="story story1">
+                        <img src="~/images/upload.png">
+                        <p>Post Story</p>
+                    </div>
+                    <div class="story story2">
+                        <img src="~/images/member-1.png">
+                        <p>Marija</p>
+                    </div>
+                    <div class="story story3">
+                        <img src="~/images/member-2.png">
+                        <p>Milos</p>
+                    </div>
+                    <div class="story story4">
+                        <img src="~/images/member-3.png">
+                        <p>Marina</p>
+                    </div>
+                    <div class="story story5">
+                        <img src="~/images/member-4.png">
+                        <p>Dejan Ivanovic</p>
+                    </div>
+                </div>
+
+                <div class="write-post-container">
+                    <div class="user-profile">
+                        <img src="~/images/profile-pic.png">
+                        <div>
+                            @*<p>Petar Misic</p>*@
+                            <p id="FeedSessionName"></p>
+                            <small>Public <i class="fa-solid fa-angle-down"></i></small>
+                        </div>
+                    </div>
+
+                    <div class="post-input-container">
+                        <textarea rows="1" placeholder="Title" name="Title"></textarea>
+                        <textarea rows="2" placeholder="What's on your mind?" name="PostContent"></textarea>
+                        <div class="add-post-links">
+                            <a href="#"><img src="~/images/live-video.png"> Live Video</a>
+                            <a href="#"><img src="~/images/photo.png"> Photo Video</a>
+                            <a href="#"><img src="~/images/feeling.png"> Feeling/Activity</a>
+                            <input type="button" value="Post" class="activity-button" name="PostBtn">
+                        </div>
+
+                    </div>
+                </div>
+
+                @foreach (var item in Model) {
+                 <div class="post-container">
+                    <div class="post-row">
+                        <div class="user-profile">
+                            <img src="~/images/profile-pic.png">
+                            <div>
+                                <p><a asp-controller="UserAccountInfoes" asp-action="Details" asp-route-id="@item.UserId">@Html.DisplayFor(modelItem => item.User.FirstName) @Html.DisplayFor(modelItem => item.User.LastName)</a></p>
+                                <span><a asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">@Html.DisplayFor(modelItem => item.DateMade)</a></span>
+                            </div>
+                        </div>
+                        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+                    </div>
+                    <p class="post-title-text">@Html.DisplayFor(modelItem => item.Title)</p>
+                    <p class="post-text">@Html.DisplayFor(modelItem => item.Content)</p>
+                    <img src="~/images/feed-image-1.png"class="post-img">
+
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <button type="button" class="activity-button"> <div><img src="~/images/like-blue.png"> 120</div> </button>
+                            
+                            
+                            <div><img src="~/images/comments.png"> 45</div>
+                            <div><img src="~/images/share.png"> 20</div>
+                        </div>
+                        <div class="post-profile-icon">
+                            <img src="~/images/profile-pic.png"><i class="fa-solid fa-angle-down"></i>
+                        </div>
+                    </div>
+                  </div>
+                          }
+               <div>
+                    <button type="button" class="load-more-button"> Load More</button>
+               </div>
+               </div>
+
+            <!----------right-sidebar----------->
+            <div class="right-sidebar">
+
+                <div class="sidebar-title">
+                    <h4>Events</h4>
+                    <a href="#">See All</a>
+                </div>
+
+
+                <div class="event">
+                    <div class="left-event">
+                        <h3>18</h3>
+                        <span>March</span>
+                    </div>
+                    <div class="right-event">
+                        <h4>Social Media</h4>
+                        <p><i class="fa-solid fa-location-dot"></i> Trg Republike</p>
+                        <a href="#">More Info</a>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="left-event">
+                        <h3>22</h3>
+                        <span>June</span>
+                    </div>
+                    <div class="right-event">
+                        <h4>Mobile Marketing</h4>
+                        <p><i class="fa-solid fa-location-dot"></i> Trg Republike</p>
+                        <a href="#">More Info</a>
+                    </div>
+                </div>
+                <div class="sidebar-title">
+                    <h4>Advertisement</h4>
+                    <a href="#">Close</a>
+                </div>
+                <img src="~/images/advertisement.png" class="sidebar-ads">
+
+                <div class="sidebar-title">
+                    <h4>Conversation</h4>
+                    <a href="#">Hide Chat</a>
+                </div>
+
+                <div class="online-list">
+                    <div class="online">
+                        <img src="~/images/member-1.png">
+                    </div>
+                    <p>Marija Davidovic</p>
+                </div>
+                <div class="online-list">
+                    <div class="online">
+                        <img src="~/images/member-2.png">
+                    </div>
+                    <p>Milos Milakovic</p>
+                </div>
+                <div class="online-list">
+                    <div class="online">
+                        <img src="~/images/member-3.png">
+                    </div>
+                    <p>Marina Marinkovic</p>
+                </div>
+               </div>
+    </body>
+</html>
